@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shader Background</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #000;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        }
+
+        #canvas {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-heading-wrap {
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 8% 2rem;
+            box-sizing: border-box;
+        }
+
+        .page-heading {
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: #f3e8cb;
+            text-align: center;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+        }
+
+        .topic-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 8%;
+            box-sizing: border-box;
+        }
+
+        .topic-card {
+            width: min(920px, 100%);
+            background: rgba(8, 10, 24, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+            transform: translate3d(0, 0, 0);
+            will-change: transform, opacity;
+        }
+
+        .topic-title {
+            margin: 0 0 1rem;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #f3e8cb;
+            letter-spacing: -0.02em;
+        }
+
+        .topic-text {
+            margin: 0;
+            font-size: clamp(1rem, 2.2vw, 1.25rem);
+            line-height: 1.75;
+            color: rgba(239, 243, 255, 0.9);
+        }
+
+        .topic-list {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: rgba(239, 243, 255, 0.9);
+            line-height: 1.75;
+            font-size: clamp(1rem, 1.8vw, 1.12rem);
+        }
+
+        .topic-list li+li {
+            margin-top: 0.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <main class="content">
+        <section class="page-heading-wrap">
+            <h1 class="page-heading">Topics in Quantitative Mathematics</h1>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.12">
+                <h2 class="topic-title">1. Probability Theory</h2>
+                <ul class="topic-list">
+                    <li>Random variables and distributions</li>
+                    <li>Conditional probability and Bayes&rsquo; theorem</li>
+                    <li>Expected value and variance</li>
+                    <li>Stochastic processes</li>
+                    <li>Applications in risk modeling and prediction</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.15">
+                <h2 class="topic-title">2. Statistics and Data Analysis</h2>
+                <ul class="topic-list">
+                    <li>Statistical inference</li>
+                    <li>Hypothesis testing</li>
+                    <li>Regression analysis</li>
+                    <li>Time-series analysis</li>
+                    <li>Data-driven decision making</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.18">
+                <h2 class="topic-title">3. Linear Algebra</h2>
+                <ul class="topic-list">
+                    <li>Vectors and matrices</li>
+                    <li>Eigenvalues and eigenvectors</li>
+                    <li>Matrix decomposition</li>
+                    <li>Optimization in high-dimensional data</li>
+                    <li>Applications in portfolio modeling and machine learning</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.14">
+                <h2 class="topic-title">4. Calculus and Optimization</h2>
+                <ul class="topic-list">
+                    <li>Differential and integral calculus</li>
+                    <li>Multivariable calculus</li>
+                    <li>Gradient methods</li>
+                    <li>Convex optimization</li>
+                    <li>Optimization of trading strategies</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.2">
+                <h2 class="topic-title">5. Numerical Methods</h2>
+                <ul class="topic-list">
+                    <li>Approximation techniques</li>
+                    <li>Iterative algorithms</li>
+                    <li>Numerical solutions of equations</li>
+                    <li>Computational efficiency in simulations</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.16">
+                <h2 class="topic-title">6. Stochastic Calculus (Advanced Topic)</h2>
+                <ul class="topic-list">
+                    <li>Brownian motion</li>
+                    <li>Random walks</li>
+                    <li>Ito&rsquo;s Lemma</li>
+                    <li>Modeling price movements in financial markets</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.13">
+                <h2 class="topic-title">7. Game Theory</h2>
+                <ul class="topic-list">
+                    <li>Strategic decision making</li>
+                    <li>Nash equilibrium</li>
+                    <li>Competitive market strategies</li>
+                    <li>Auction and market behavior analysis</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.19">
+                <h2 class="topic-title">8. Graph Theory and Algorithms</h2>
+                <ul class="topic-list">
+                    <li>Network optimization</li>
+                    <li>Shortest path problems</li>
+                    <li>Matching algorithms</li>
+                    <li>High-frequency trading infrastructure logic</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.15">
+                <h2 class="topic-title">9. Discrete Mathematics</h2>
+                <ul class="topic-list">
+                    <li>Combinatorics</li>
+                    <li>Permutations and combinations</li>
+                    <li>Probability counting techniques</li>
+                    <li>Logic and proof methods</li>
+                </ul>
+            </article>
+        </section>
+        <section class="topic-section">
+            <article class="topic-card" data-speed="0.22">
+                <h2 class="topic-title">10. Competitive Programming Mathematics</h2>
+                <ul class="topic-list">
+                    <li>Greedy algorithms</li>
+                    <li>Dynamic programming</li>
+                    <li>Complexity analysis</li>
+                    <li>Mathematical problem-solving techniques used in real-time systems</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script id="frag" type="x-shader/x-fragment">#version 300 es
+precision highp float;
+out vec4 O;
+uniform float time;
+uniform vec2 resolution;
+
+#define FC gl_FragCoord.xy
+#define R resolution
+#define T time
+#define MN min(R.x,R.y)
+#define S smoothstep
+#define SE(v,a) S(fwidth(a),-.35,v-a)
+#define PI radians(180.)
+#define lum(a) dot(a,vec3(.21,.71,.07))
+#define hue(a)(.5+.5*sin(PI*(a)+vec3(1,2,3)))
+
+vec3 watermark() {
+    vec3 col=vec3(0);
+    float rel=R.x/R.y;
+    vec2 z=FC/R;
+    z.x*=rel;
+    z.x-=rel;
+    z+=vec2(.1,-.1);
+    float j=.025, id=round(z.y/j);
+    z.y-=clamp(round(z.y/j),-1.,1.)*j;
+    float bx=max(abs(z.x),abs(z.y)), rect=step(bx,.01), frame=rect-step(bx,.008);
+    return clamp(mix(col,rect*hue(cos(T*.2)-id*PI*2.),mix(frame,rect,.5)),.0,1.);
+}
+
+void main() {
+    vec3 wm=watermark();
+    O=vec4(wm,0);
+    vec3 bg=vec3(.08);
+    vec2 uv=2.*FC-R, st=(FC-.5*R)/MN;
+    float bs=MN*.05;
+
+    uv*=mat2(cos(sin(T*.2)-vec4(0,11,33,0)))*exp(cos(T)*.321)*(.7+.5*cos(T*.5));
+    float d=length(uv)/MN;
+    uv=vec2(log(d),.205+atan(uv.x,uv.y))*8./PI;
+    vec2 p=uv;
+    uv.x+=floor(uv.y*.5)*.5-T*1.5;
+    uv=mod(uv,2.)-1.;
+    p+=sin(T*10.-p*vec2(10,30))*.01;
+    uv*=uv*uv*uv;
+    float l=dot(uv,uv);
+    l=abs(d-SE(l,.2));
+    vec3 col=hue(l*l-T*.5);
+    col=tanh(col*col)/(.01+.25*lum(vec3(distance(cos((p.x-T)*12.),sin(p.y*42.)))));
+    col=sqrt(col);
+    l=dot(abs(uv)/dot(p,4.5*p)-.9,st);
+    col=mix(2.*sqrt(hue(.1+l)/max(l*l*l*l,.1)),col,S(-.5,.5,length((FC-.5*R)/MN)));
+    col/=4.;
+    col=mix(vec3(.85),col,mix(.6,1.,fract(sin(dot(st, vec2(12.9898,78.233)))*345678.)));
+    col=max(col,.1);
+    col=mix(col,vec3(1),S(1e-5,-1e-2,dot(st,st)));
+
+    vec2 c=FC/R;
+    c*=1.-c.yx;
+    float vig=c.x*c.y*25.;
+    vig=S(.0,1.,pow(vig,.3));
+    col=mix(vec3(lum(col)),col,vig);
+    col=mix(vec3(0),col,vig);
+    col*=vec3(1.2*lum(col));
+    col=sqrt(col);
+
+    col=max(col,wm);
+    O=vec4(col,1);
+}
+</script>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const gl = canvas.getContext('webgl2', {
+            alpha: false,
+            antialias: false,
+            depth: false,
+            stencil: false,
+            preserveDrawingBuffer: false
+        });
+
+        if (!gl) {
+            throw new Error('WebGL2 not supported');
+        }
+
+        const vertexSrc = `#version 300 es
+precision highp float;
+in vec4 position;
+void main() { gl_Position = position; }`;
+
+        const fragmentSrc = document.getElementById('frag').textContent;
+
+        function compileShader(type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                const err = gl.getShaderInfoLog(shader);
+                gl.deleteShader(shader);
+                throw new Error(err || 'Shader compilation failed');
+            }
+            return shader;
+        }
+
+        const vs = compileShader(gl.VERTEX_SHADER, vertexSrc);
+        const fs = compileShader(gl.FRAGMENT_SHADER, fragmentSrc);
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vs);
+        gl.attachShader(program, fs);
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+            throw new Error(gl.getProgramInfoLog(program) || 'Program link failed');
+        }
+
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, 1, -1, -1, 1, 1, 1, -1]), gl.STATIC_DRAW);
+
+        const position = gl.getAttribLocation(program, 'position');
+        gl.enableVertexAttribArray(position);
+        gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+        const uResolution = gl.getUniformLocation(program, 'resolution');
+        const uTime = gl.getUniformLocation(program, 'time');
+
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+        function resize() {
+            const w = Math.floor(window.innerWidth * dpr);
+            const h = Math.floor(window.innerHeight * dpr);
+            canvas.width = w;
+            canvas.height = h;
+            gl.viewport(0, 0, w, h);
+        }
+
+        function render(now) {
+            gl.useProgram(program);
+            gl.uniform2f(uResolution, canvas.width, canvas.height);
+            gl.uniform1f(uTime, now * 0.001);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+        }
+
+        const cards = [...document.querySelectorAll('.topic-card')];
+        let scrollTicking = false;
+
+        function updateParallax() {
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const mid = rect.top + rect.height * 0.5;
+                const distFromCenter = mid - window.innerHeight * 0.5;
+                const speed = Number(card.dataset.speed || 0.15);
+                const y = -distFromCenter * speed;
+                const focus = 1 - Math.min(Math.abs(distFromCenter) / (window.innerHeight * 0.85), 1);
+                card.style.transform = `translate3d(0, ${y}px, 0)`;
+                card.style.opacity = `${0.55 + focus * 0.45}`;
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                updateParallax();
+                scrollTicking = false;
+            });
+        }, { passive: true });
+
+        window.addEventListener('resize', resize);
+        resize();
+        updateParallax();
+        requestAnimationFrame(render);
+    </script>
+</body>
+
+</html>

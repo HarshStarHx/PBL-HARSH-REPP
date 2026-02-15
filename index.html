@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Presentation | 2026</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #timerContainer {
+            background: #ffffff;
+            color: #020617;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            border: 3px solid #3b82f6;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body onload="startTimer()">
+
+    <!-- TIMER -->
+    <div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4">
+        <i class="fas fa-hourglass-start text-blue-600 text-2xl"></i>
+        <span id="displayTime" class="text-4xl font-black font-mono">00:00</span>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+
+        <!-- TITLE -->
+        <section class="text-center">
+
+            <div
+                class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
+                ID: 2427030353
+            </div>
+
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase">
+                <span class="gradient-text">
+                    Quantitative Research Mathematics
+                </span>
+            </h1>
+
+            <p class="text-slate-400 max-w-2xl mx-auto italic text-lg border-l-2 border-blue-500/30 pl-6 text-left">
+                Hypothesis/Project Statement: The objective of this project is to investigate how mathematical modeling,
+                statistical reasoning, and computational algorithms are applied in quantitative research environments
+                to analyze complex problems and support data-driven decision making.
+            </p>
+        </section>
+
+        <!-- PROBLEM -->
+        <section id="problem" class="grid md:grid-cols-2 gap-12">
+
+            <div class="glass p-10 rounded-[2.5rem] border-l-4 border-blue-600">
+                <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+
+                <p class="text-slate-400 text-justify">
+                    The primary challenge addressed in this project is the gap between theoretical mathematical
+                    knowledge and its practical application in real-world quantitative research environments.
+                    This project explores how mathematical modeling, logical reasoning, and computational methods
+                    are combined to analyze data and design efficient problem-solving strategies.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+
+                <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+                    <h3 class="text-blue-400 text-xs font-bold uppercase mb-2">
+                        Literature Review / Market Research
+                    </h3>
+
+                    <p class="text-sm text-slate-500 italic">
+                        Existing quantitative methodologies integrate probability theory, statistics,
+                        and computational algorithms to analyze complex datasets and support decision making.
+                    </p>
+                </div>
+
+                <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+                    <h3 class="text-purple-400 text-xs font-bold uppercase mb-2">
+                        Research Gap / Innovation
+                    </h3>
+
+                    <p class="text-sm text-slate-500 italic">
+                        This project focuses on building a structured bridge between academic mathematical learning
+                        and practical quantitative research by emphasizing analytical workflow and conceptual
+                        understanding.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- METHODOLOGY -->
+        <section id="methodology">
+
+            <h2 class="text-4xl font-black text-center mb-12 uppercase">
+                System <span class="text-blue-500">Methodology</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="glass p-8 rounded-3xl text-center">
+                    <i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold">Dataset / Input</h3>
+                </div>
+
+                <div class="glass p-8 rounded-3xl text-center">
+                    <i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold">Model / Architecture</h3>
+                </div>
+
+                <!-- LIVE EXECUTION -->
+                <div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
+
+                    <i class="fab fa-python text-green-500 text-3xl mb-4"></i>
+
+                    <h3 class="font-bold mb-4 uppercase text-xs tracking-widest text-green-400">
+                        Live Execution
+                    </h3>
+
+                    <a href="https://github.com/HarshStarHx/PBL-Repo" target="_blank"
+                        class="px-6 py-2 bg-green-600 rounded-full text-[10px] font-black hover:bg-green-500 transition shadow-lg shadow-green-900/40">
+                        VIEW CODE / DEMO
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section id="team" class="text-center pt-10 border-t border-slate-900">
+
+            <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
+                Academic Credits
+            </h2>
+
+            <div class="flex flex-wrap justify-center gap-10">
+
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
+                        Project Guide
+                    </p>
+                    <p class="font-black text-xl text-slate-100">
+                        Dr. Ashish Kumar
+                    </p>
+                </div>
+
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+                    <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
+                        Team Member
+                    </p>
+                    <p class="font-black text-xl text-slate-100">
+                        Harsh Khandelwal
+                    </p>
+                    <p class="text-[10px] text-slate-500 mt-1">
+                        2427030353
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let sec = 0;
+        function startTimer() {
+            setInterval(() => {
+                sec++;
+                let m = Math.floor(sec / 60);
+                let s = sec % 60;
+                document.getElementById('displayTime').innerText =
+                    `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>

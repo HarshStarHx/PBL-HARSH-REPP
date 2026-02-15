@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Hole Visualization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: radial-gradient(ellipse at center, #0a0a1a 0%, #000002 70%);
+            min-height: 100vh;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .parallax-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 12%;
+            box-sizing: border-box;
+            transform: translateZ(0);
+            --text-blur: 0px;
+            --section-opacity: 1;
+            opacity: var(--section-opacity);
+            transition: opacity 0.25s ease;
+        }
+
+        .parallax-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .parallax-section p {
+            max-width: 800px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .head {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            margin-bottom: 22px;
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            background: linear-gradient(90deg, #fff8e6 0%, #ffd9aa 38%, #b8ccff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 22px rgba(0, 0, 0, 0.38);
+            position: relative;
+            display: inline-block;
+            filter: blur(var(--text-blur));
+            transition: filter 0.25s ease;
+        }
+
+        .head::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 84px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(255, 180, 120, 0.95), rgba(140, 170, 255, 0.85));
+            box-shadow: 0 0 18px rgba(255, 150, 90, 0.35);
+        }
+
+        .para {
+            font-size: clamp(1rem, 1.45vw, 1.16rem);
+            line-height: 1.85;
+            max-width: 860px;
+            color: rgba(245, 248, 255, 0.97);
+            letter-spacing: 0.005em;
+            text-wrap: pretty;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
+            filter: blur(var(--text-blur));
+            transition: filter 0.25s ease;
+        }
+
+        /* Readable hover highlight (span-like dark backdrop) */
+        .head,
+        .para {
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            transition: color 0.25s ease, text-shadow 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, filter 0.25s ease;
+        }
+
+        .head:hover,
+        .para:hover {
+            color: rgba(255, 255, 255, 0.98);
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(8, 12, 28, 0.82);
+            box-shadow: 0 0 0 6px rgba(8, 12, 28, 0.82);
+            border-radius: 8px;
+            filter: blur(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+
+        <section class="parallax-section">
+            <h1 class="head">Induction</h1>
+            <p class="para">
+                This introduction explains how quantitative researchers use mathematics in quantitative companies and
+                research-driven trading firms such as Jane Street and other financial institutions. The purpose of this
+                work is to understand how mathematical concepts, logical reasoning, and analytical thinking are applied
+                to solve real-world problems in quantitative finance.
+                <br>
+                My name is Harsh Khandelwal, and I am a student at Manipal University Jaipur.
+
+                Roll Number: 2427030353
+
+                In this work, I will apply fundamental mathematical logic and analytical approaches to understand
+                company-level problem solving. The focus will be on using mathematical reasoning along with competitive
+                programming techniques to analyze and solve complex problems efficiently, similar to the methods used in
+                quantitative research and trading environments.
+
+            </p>
+        </section>
+
+
+
+
+        <section class="parallax-section">
+            <h1 class="head">Mentor</h1>
+            <p class="para">
+                My mentor for this work is Dr. Ashish Kumar Sir from the Department of Computer Science. Under his
+                guidance, this research focuses on developing a strong understanding of mathematical foundations,
+                analytical thinking, and problem-solving approaches required in quantitative research.
+            </p>
+        </section>
+
+
+
+        <section class="parallax-section">
+            <h1 class="head">What is the reason?</h1>
+            <p class="para">
+                The reason for doing this work is to enhance my analytical skills, mathematical thinking, and
+                problem-solving ideology. Through this study, I aim to improve my understanding of logical reasoning and
+                computational approaches while contributing meaningful knowledge to people who are interested in or
+                working within this field. This work is intended to build a stronger foundation in quantitative thinking
+                and to develop skills that are useful for real-world applications.
+        </section>
+
+        <section class="parallax-section">
+            <h1 class="head">Goal</h1>
+            <p class="para" style="line-height: 2;">
+
+
+                The goal of this research is to develop a deep understanding of how quantitative researchers apply <br>
+                mathematics, statistics, and computational logic to solve real-world problems within quantitative <br>
+                companies and research-driven trading firms. Through this work, my objective is to study the
+                mathematical foundations behind quantitative analysis, including probability theory, statistical
+                modeling, optimization techniques, and algorithmic thinking, and to understand how these concepts are
+                transformed into practical decision-making tools in real industry environments. I aim to explore how
+                quantitative researchers analyze data, model uncertainty, and design logical strategies that can operate
+                efficiently under complex and dynamic market conditions. This research is also intended to bridge the
+                gap between theoretical knowledge and practical implementation by combining mathematical reasoning with
+                competitive programming and structured problem-solving approaches. By studying real quantitative
+                methodologies used in companies, I seek to enhance my analytical ability, improve my problem-solving
+                mindset, and gain insight into how large-scale computational and mathematical models are developed and
+                applied in professional settings. Ultimately, the goal of this work is to build a strong foundation that
+                allows me to understand real quantitative analysis at a deeper level, apply mathematical logic to
+                real-world challenges, and prepare myself for contributing to research-oriented environments where
+                mathematics, computation, and analytical thinking are used to solve complex problems efficiently and
+                systematically.
+
+
+            </p>
+        </section>
+
+
+
+    </div>
+
+
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+  }
+}
+</script>
+
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+        // ────────────────────────────────────────────────
+        //  Config
+        // ────────────────────────────────────────────────
+        window.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll(".parallax-section");
+
+            sections.forEach((section, index) => {
+                const speed = 0.15;
+                const offset = window.scrollY * speed;
+                section.style.transform = `translateY(${offset * (index * 0.2)}px)`;
+
+                const rect = section.getBoundingClientRect();
+                const centerOffset = Math.abs(rect.top + rect.height * 0.5 - window.innerHeight * 0.5);
+                const dist = Math.min(centerOffset / (window.innerHeight * 0.9), 1);
+                section.style.setProperty("--text-blur", `${dist * 2.2}px`);
+                section.style.setProperty("--section-opacity", `${0.55 + (1 - dist) * 0.45}`);
+            });
+        });
+
+        const BLACK_HOLE_RADIUS = 1.3;
+        const DISK_INNER_RADIUS = BLACK_HOLE_RADIUS + 0.2;
+        const DISK_OUTER_RADIUS = 8.0;
+        const DISK_TILT_ANGLE = Math.PI / 3.0;
+
+        // ────────────────────────────────────────────────
+        //  Scene setup
+        // ────────────────────────────────────────────────
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x020104, 0.025);
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 4000);
+        camera.position.set(-9, 7, 9);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.25;
+        document.body.appendChild(renderer.domElement);
+
+        const composer = new EffectComposer(renderer);
+        composer.addPass(new RenderPass(scene, camera));
+
+        const bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            0.72, 0.65, 0.75
+        );
+        composer.addPass(bloomPass);
+
+        // ────────────────────────────────────────────────
+        //  Gravitational lensing post-process
+        // ────────────────────────────────────────────────
+        const lensingShader = {
+            uniforms: {
+                "tDiffuse": { value: null },
+                "blackHoleScreenPos": { value: new THREE.Vector2(0.5, 0.5) },
+                "lensingStrength": { value: 0.14 },
+                "lensingRadius": { value: 0.32 },
+                "aspectRatio": { value: window.innerWidth / window.innerHeight },
+                "chromaticAberration": { value: 0.006 }
+            },
+            vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+            fragmentShader: `
+            uniform sampler2D tDiffuse;
+            uniform vec2 blackHoleScreenPos;
+            uniform float lensingStrength;
+            uniform float lensingRadius;
+            uniform float aspectRatio;
+            uniform float chromaticAberration;
+            varying vec2 vUv;
+
+            void main() {
+                vec2 screenPos = vUv;
+                vec2 toCenter = screenPos - blackHoleScreenPos;
+                toCenter.x *= aspectRatio;
+                float dist = length(toCenter);
+
+                float distortionAmount = lensingStrength / (dist * dist + 0.003);
+                distortionAmount = clamp(distortionAmount, 0.0, 0.75);
+                float falloff = smoothstep(lensingRadius, lensingRadius * 0.28, dist);
+                distortionAmount *= falloff;
+
+                vec2 dir = dist > 0.0001 ? normalize(toCenter) : vec2(0.0);
+                vec2 offset = dir * distortionAmount;
+                offset.x /= aspectRatio;
+
+                vec2 uvR = screenPos - offset * (1.0 + chromaticAberration);
+                vec2 uvG = screenPos - offset;
+                vec2 uvB = screenPos - offset * (1.0 - chromaticAberration);
+
+                float r = texture2D(tDiffuse, uvR).r;
+                float g = texture2D(tDiffuse, uvG).g;
+                float b = texture2D(tDiffuse, uvB).b;
+
+                gl_FragColor = vec4(r, g, b, 1.0);
+            }
+        `
+        };
+        const lensingPass = new ShaderPass(lensingShader);
+        composer.addPass(lensingPass);
+
+        // ────────────────────────────────────────────────
+        //  Controls – auto-rotate by default
+        // ────────────────────────────────────────────────
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.04;
+        controls.rotateSpeed = 0.35;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.45;
+        controls.target.set(0, 0, 0);
+        controls.minDistance = 3.2;
+        controls.maxDistance = 120;
+        controls.enablePan = false;
+        controls.enableZoom = true;
+        controls.update();
+
+        // ────────────────────────────────────────────────
+        //  Star field
+        // ────────────────────────────────────────────────
+        const starCount = 160000;
+        const starGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(starCount * 3);
+        const colors = new Float32Array(starCount * 3);
+        const sizes = new Float32Array(starCount);
+        const twinkles = new Float32Array(starCount);
+
+        const starFieldRadius = 2200;
+        const palette = [
+            0x88aaff, 0xffaaff, 0xaaffff, 0xffddaa,
+            0xffeecc, 0xffffff, 0xff8888, 0x88ff88,
+            0xffff88, 0x88ffff
+        ];
+
+        for (let i = 0; i < starCount; i++) {
+            const i3 = i * 3;
+            const phi = Math.acos(-1 + (2 * i) / starCount);
+            const theta = Math.sqrt(starCount * Math.PI) * phi;
+            const r = Math.cbrt(Math.random()) * starFieldRadius + 120;
+
+            positions[i3] = r * Math.sin(phi) * Math.cos(theta);
+            positions[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+            positions[i3 + 2] = r * Math.cos(phi);
+
+            const col = new THREE.Color(palette[i % palette.length]);
+            col.multiplyScalar(Math.random() * 0.6 + 0.4);
+            colors[i3] = col.r; colors[i3 + 1] = col.g; colors[i3 + 2] = col.b;
+
+            sizes[i] = THREE.MathUtils.randFloat(0.5, 2.8);
+            twinkles[i] = Math.random() * Math.PI * 2;
+        }
+
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        starGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+        starGeometry.setAttribute('twinkle', new THREE.BufferAttribute(twinkles, 1));
+
+        const starMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                uTime: { value: 0 },
+                uPixelRatio: { value: renderer.getPixelRatio() }
+            },
+            vertexShader: `
+            uniform float uTime;
+            uniform float uPixelRatio;
+            attribute float size;
+            attribute float twinkle;
+            varying vec3 vColor;
+            varying float vTwinkle;
+
+            void main() {
+                vColor = color;
+                vTwinkle = sin(uTime * 2.4 + twinkle) * 0.5 + 0.5;
+
+                vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+                gl_PointSize = size * uPixelRatio * (320.0 / -mvPos.z);
+                gl_Position = projectionMatrix * mvPos;
+            }
+        `,
+            fragmentShader: `
+            varying vec3 vColor;
+            varying float vTwinkle;
+
+            void main() {
+                vec2 coord = gl_PointCoord - vec2(0.5);
+                float dist = length(coord);
+                if (dist > 0.5) discard;
+
+                float alpha = 1.0 - smoothstep(0.0, 0.5, dist);
+                alpha *= (0.25 + vTwinkle * 0.75);
+
+                gl_FragColor = vec4(vColor, alpha);
+            }
+        `,
+            transparent: true,
+            vertexColors: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+
+        // ────────────────────────────────────────────────
+        //  Event Horizon glow
+        // ────────────────────────────────────────────────
+        const eventHorizonGeom = new THREE.SphereGeometry(BLACK_HOLE_RADIUS * 1.06, 128, 64);
+        const eventHorizonMat = new THREE.ShaderMaterial({
+            uniforms: {
+                uTime: { value: 0 },
+                uCameraPosition: { value: camera.position }
+            },
+            vertexShader: `
+            varying vec3 vNormal;
+            varying vec3 vPosition;
+            void main() {
+                vNormal = normalize(normalMatrix * normal);
+                vPosition = position;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+            fragmentShader: `
+            uniform float uTime;
+            uniform vec3 uCameraPosition;
+            varying vec3 vNormal;
+            varying vec3 vPosition;
+
+            void main() {
+                vec3 viewDir = normalize(uCameraPosition - vPosition);
+                float fresnel = 1.0 - abs(dot(vNormal, viewDir));
+                fresnel = pow(fresnel, 2.6);
+
+                vec3 glow = vec3(1.0, 0.38, 0.08);
+                float pulse = sin(uTime * 2.7) * 0.11 + 0.8;
+
+                gl_FragColor = vec4(glow * fresnel * pulse, fresnel * 0.42);
+            }
+        `,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            side: THREE.BackSide
+        });
+
+        const eventHorizon = new THREE.Mesh(eventHorizonGeom, eventHorizonMat);
+        scene.add(eventHorizon);
+
+        // Pure black sphere
+        const blackHoleGeom = new THREE.SphereGeometry(BLACK_HOLE_RADIUS, 96, 48);
+        const blackHoleMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+        const blackHole = new THREE.Mesh(blackHoleGeom, blackHoleMat);
+        blackHole.renderOrder = 0;
+        scene.add(blackHole);
+
+        // ────────────────────────────────────────────────
+        //  Accretion disk
+        // ────────────────────────────────────────────────
+        const diskGeometry = new THREE.RingGeometry(DISK_INNER_RADIUS, DISK_OUTER_RADIUS, 256, 128);
+
+        const diskMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                uTime: { value: 0.0 },
+                uColorHot: { value: new THREE.Color(0xffffff) },
+                uColorMid1: { value: new THREE.Color(0xff7733) },
+                uColorMid2: { value: new THREE.Color(0xff4477) },
+                uColorMid3: { value: new THREE.Color(0x7744ff) },
+                uColorOuter: { value: new THREE.Color(0x4477ff) },
+                uNoiseScale: { value: 0.5 },
+                uFlowSpeed: { value: 0.24 },
+                uDensity: { value: 1.35 }
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                varying float vRadius;
+                varying float vAngle;
+                void main() {
+                    vUv = uv;
+                    vRadius = length(position.xy);
+                    vAngle  = atan(position.y, position.x);
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float uTime;
+                uniform vec3 uColorHot;
+                uniform vec3 uColorMid1;
+                uniform vec3 uColorMid2;
+                uniform vec3 uColorMid3;
+                uniform vec3 uColorOuter;
+                uniform float uNoiseScale;
+                uniform float uFlowSpeed;
+                uniform float uDensity;
+
+                varying vec2 vUv;
+                varying float vRadius;
+                varying float vAngle;
+
+                vec3 mod289(vec3 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+                vec4 mod289(vec4 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+                vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+                vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+                float snoise(vec3 v) {
+                    const vec2  C = vec2(1.0/6.0, 1.0/3.0);
+                    const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+                    vec3 i  = floor(v + dot(v, C.yyy));
+                    vec3 x0 = v - i + dot(i, C.xxx);
+                    vec3 g = step(x0.yzx, x0.xyz);
+                    vec3 l = 1.0 - g;
+                    vec3 i1 = min(g.xyz, l.zxy);
+                    vec3 i2 = max(g.xyz, l.zxy);
+
+                    vec3 x1 = x0 - i1 + C.xxx;
+                    vec3 x2 = x0 - i2 + C.yyy;
+                    vec3 x3 = x0 - D.yyy;
+                    i = mod289(i);
+                    vec4 p = permute(permute(permute(
+                                 i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                               + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+                               + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+                    float n_ = 0.142857142857;
+                    vec3 ns = n_ * D.wyz - D.xzx;
+                    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                    vec4 x_ = floor(j * ns.z);
+                    vec4 y_ = floor(j - 7.0 * x_);
+                    vec4 x = x_ * ns.x + ns.yyyy;
+                    vec4 y = y_ * ns.x + ns.yyyy;
+                    vec4 h = 1.0 - abs(x) - abs(y);
+
+                    vec4 b0 = vec4(x.xy, y.xy);
+                    vec4 b1 = vec4(x.zw, y.zw);
+
+                    vec4 s0 = floor(b0) * 2.0 + 1.0;
+                    vec4 s1 = floor(b1) * 2.0 + 1.0;
+                    vec4 sh = -step(h, vec4(0.0));
+
+                    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+                    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+                    vec3 p0 = vec3(a0.xy, h.x);
+                    vec3 p1 = vec3(a0.zw, h.y);
+                    vec3 p2 = vec3(a1.xy, h.z);
+                    vec3 p3 = vec3(a1.zw, h.w);
+
+                    vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+                    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+                    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+                    m = m * m;
+                    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+                }
+
+                void main() {
+                    float normRadius = smoothstep(1.500, 8.000, vRadius);
+
+                    float spiral = vAngle * 0.6 - (1.0 / (normRadius * 0.5 + 0.08)) * 2.8;
+
+                    vec2 nUv = vec2(
+                        vUv.x + uTime * uFlowSpeed * (2.8 / (vRadius * 0.25 + 1.0)) + sin(spiral) * 0.4,
+                        vUv.y * 0.6 + cos(spiral) * 0.4
+                    );
+
+                    float n1 = snoise(vec3(nUv * uNoiseScale,       uTime * 0.14));
+                    float n2 = snoise(vec3(nUv * uNoiseScale * 2.0, uTime * 0.20));
+                    float n3 = snoise(vec3(nUv * uNoiseScale * 3.5, uTime * 0.28));
+
+                    float noise = (n1 * 0.55 + n2 * 0.3 + n3 * 0.15);
+                    noise = (noise + 1.0) * 0.5;
+
+                    vec3 col = uColorOuter;
+                    col = mix(col, uColorMid3, smoothstep(0.0,  0.26, normRadius));
+                    col = mix(col, uColorMid2, smoothstep(0.22, 0.56, normRadius));
+                    col = mix(col, uColorMid1, smoothstep(0.52, 0.76, normRadius));
+                    col = mix(col, uColorHot,  smoothstep(0.72, 0.96, normRadius));
+
+                    col *= (0.48 + noise * 1.05);
+
+                    float bright = pow(1.0 - normRadius, 1.0) * 3.8 + 0.5;
+                    bright *= (0.28 + noise * 2.4);
+
+                    float pulse = sin(uTime * 1.9 + normRadius * 13.0 + vAngle * 2.2) * 0.16 + 0.84;
+                    bright *= pulse;
+
+                    float alpha = uDensity * (0.18 + noise * 0.95);
+                    alpha *= smoothstep(0.0, 0.16, normRadius);
+                    alpha *= (1.0 - smoothstep(0.84, 1.0, normRadius));
+                    alpha = clamp(alpha, 0.0, 1.0);
+
+                    gl_FragColor = vec4(col * bright, alpha);
+                }
+            `,
+            transparent: true,
+            side: THREE.DoubleSide,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+
+        const accretionDisk = new THREE.Mesh(diskGeometry, diskMaterial);
+        accretionDisk.rotation.x = DISK_TILT_ANGLE;
+        accretionDisk.renderOrder = 1;
+        scene.add(accretionDisk);
+
+        // ────────────────────────────────────────────────
+        //  Animation loop
+        // ────────────────────────────────────────────────
+        const clock = new THREE.Clock();
+        const bhScreenPos = new THREE.Vector3();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const t = clock.getElapsedTime();
+            const dt = clock.getDelta();
+
+            diskMaterial.uniforms.uTime.value = t;
+            starMaterial.uniforms.uTime.value = t;
+            eventHorizonMat.uniforms.uTime.value = t;
+            eventHorizonMat.uniforms.uCameraPosition.value.copy(camera.position);
+
+            // update lensing center
+            bhScreenPos.copy(blackHole.position).project(camera);
+            lensingPass.uniforms.blackHoleScreenPos.value.set(
+                (bhScreenPos.x + 1) / 2,
+                (bhScreenPos.y + 1) / 2
+            );
+
+            controls.update();
+
+            // gentle extra rotation
+            stars.rotation.y += dt * 0.0032;
+            stars.rotation.x += dt * 0.0011;
+            accretionDisk.rotation.z += dt * 0.006;
+
+            composer.render();
+        }
+
+        animate();
+
+        // ────────────────────────────────────────────────
+        //  Resize handling
+        // ────────────────────────────────────────────────
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            composer.setSize(window.innerWidth, window.innerHeight);
+            bloomPass.resolution.set(window.innerWidth, window.innerHeight);
+            lensingPass.uniforms.aspectRatio.value = camera.aspect;
+        });
+    </script>
+</body>
+
+</html>
